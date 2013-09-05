@@ -1,19 +1,17 @@
-%define upstream_name    HTTP-Negotiate
-%define upstream_version 6.00
-
-Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+%define modname	HTTP-Negotiate
+%define modver	6.00
 
 Summary:	HTTP content negotiation
-License:	GPL+ or Artistic
+Name:		perl-%{modname}
+Version:	%perl_convert_version %{modver}
+Release:	6
+License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/HTTP/%{upstream_name}-%{upstream_version}.tar.gz
-
+Url:		http://search.cpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/HTTP/%{modname}-%{modver}.tar.gz
+BuildArch:	noarch
 BuildRequires:	perl(HTTP::Headers)
 BuildRequires:	perl-devel
-BuildArch:	noarch
 
 %description
 This module provides a complete implementation of the HTTP content
@@ -32,7 +30,7 @@ and $content_language can be either a single scalar value or an array
 reference if there are several values.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -qn %{modname}-%{modver}
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
@@ -46,24 +44,6 @@ reference if there are several values.
 
 %files
 %doc Changes META.yml README
-%{_mandir}/man3/*
 %{perl_vendorlib}/*
-
-
-%changelog
-* Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 6.0.0-4mdv2012.0
-+ Revision: 765365
-- rebuilt for perl-5.14.2
-
-* Sat Jan 21 2012 Oden Eriksson <oeriksson@mandriva.com> 6.0.0-3
-+ Revision: 763867
-- rebuilt for perl-5.14.x
-
-* Fri Jan 20 2012 Oden Eriksson <oeriksson@mandriva.com> 6.0.0-2
-+ Revision: 763079
-- rebuild
-
-* Wed May 04 2011 Guillaume Rousse <guillomovitch@mandriva.org> 6.0.0-1
-+ Revision: 666390
-- import perl-HTTP-Negotiate
+%{_mandir}/man3/*
 
