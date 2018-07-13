@@ -10,6 +10,7 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/HTTP/HTTP-Negotiate-%{modver}.tar.gz
 BuildArch:	noarch
+BuildRequires:	perl(Test)
 BuildRequires:	perl(HTTP::Headers)
 BuildRequires:	perl-devel
 
